@@ -1,0 +1,45 @@
+<div class="container" ng-controller="Controller"><!-- Kontroleris skirtas Post modalui -->
+<header class="major">
+<h2>Wanna share your knowledge?</h2>
+</header>
+<p>You're welcome to create a new post. Your post will be checked and approved by the admin in the next couple of hours.</p>
+<ul class="actions uniform">
+<li><a href ng-click="show()" class="button special" style="text-decoration:none;">Create Post</a></li>
+<li><a href="#about" class="button" style="text-decoration:none;">About this Page</a></li>
+</ul>
+</div>
+
+<!-- The actual modal template, just a bit o bootstrap -->
+ <script type="text/ng-template" id="modal.html">
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close closePost" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Create Your Post</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container modalPost">
+					<form method="post" action="/post">
+						<div>
+							<div class="postTitle">
+								<input type="text" name="title" id="demo-name" value="" placeholder="Title of your Post" />
+							</div>
+
+							<div>
+								<textarea name="text" id="demo-message" ui-tinymce ng-model="tinymceModel" placeholder="Enter your Post" rows="6"></textarea>
+							</div>
+							<div class="12u$">
+								<ul class="actions formButtons">
+									<li><input type="submit" ng-click="close('No')" value="Send Post" class="special" /></li>
+									<li><input type="reset" value="Reset" class="button" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ </script>

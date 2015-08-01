@@ -1,0 +1,23 @@
+<section>
+<div class="container">
+	<form method="post" action="/post">
+		<div>
+			<div class="postTitle">
+				<input type="text" name="title" id="demo-name" value="" placeholder="Title of your Post" />
+			</div>
+
+			<div>
+				<textarea name="text" id="demo-message" ui-tinymce ng-model="tinymceModel" placeholder="Enter your Post" rows="6"></textarea>
+			</div>
+			<div class="12u$">
+				<ul class="actions formButtons">
+					<li><input type="submit" value="Send Post" class="special" /></li>
+					<li><input type="reset" value="Reset" class="button" /></li>
+				</ul>
+			</div>
+		</div>
+	</form>
+</div>
+</section>
+
+<a href="#" class="button special">Back</a>

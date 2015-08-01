@@ -1,0 +1,73 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="/libs/main.js"></script>
+    <style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Backend Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <br><br>
+        <a href="/allposts" class="btn btn-default">Edit all posts</a>
+        <br><br>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <ul>
+                    <% posts.reverse() %>
+                    <% for(var i=0; i<posts.length; i++) { %>
+                        <li>
+                            <h1><%= posts[i].title %></h1>
+                            <br>
+                            <%= posts[i].text %>
+                            <br>
+                            <button class="editPost" type="button">Edit Me!</button>
+
+                            <section class="editForm">
+                                <form method="post" action="/editpost/<%= posts[i]._id %>">
+                                    <div class="row 50%">
+                                        <div class="6u 12u(mobile)">
+                                            <input name="title" placeholder="Title" type="text" value="<%= posts[i].title %>" />
+                                        </div>
+                                    </div>
+                                    <div class="row 50%">
+                                        <div class="12u">
+                                            <textarea name="text" placeholder="Text"><%= posts[i].text %></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row 50%">
+                                        <div class="12u">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send Post" /></li>
+                                                <br>
+                                                <li><input type="reset" value="Clear form" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                            <h3>sekantis</h3>
+                        </li>
+                    <% } %>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
